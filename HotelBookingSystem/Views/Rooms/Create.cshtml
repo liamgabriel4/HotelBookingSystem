@@ -1,0 +1,22 @@
+﻿@model HotelBookingSystem.Models.Room
+
+<h2>Add New Room</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Name:</label>
+        <input asp-for="Name" required />
+    </div>
+
+    <div>
+        <label>Capacity:</label>
+        <input asp-for="Capacity" type="number" required />
+    </div>
+
+    <div>
+        <label>Price Per Night:</label>
+        <input asp-for="PricePerNight" type="number" required />
+    </div>
+
+    <button type="submit">Add Room</button>
+</form>

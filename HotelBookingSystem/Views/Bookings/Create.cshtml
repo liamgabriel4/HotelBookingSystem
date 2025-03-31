@@ -1,0 +1,38 @@
+﻿@model HotelBookingSystem.Models.Booking
+
+<h2>Make a Booking</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Select Room:</label>
+        <select asp-for="RoomId" required>
+            <option value="">-- Select Room --</option>
+            @foreach (var room in ViewBag.Rooms)
+            {
+                <option value="@room.Id">@room.Name (@room.PricePerNight.ToString("C"))</option>
+            }
+        </select>
+    </div>
+
+    <div>
+        <label>Customer Name:</label>
+        <input asp-for="CustomerName" required />
+    </div>
+
+    <div>
+        <label>Email:</label>
+        <input asp-for="CustomerEmail" type="email" required />
+    </div>
+
+    <div>
+        <label>Check-In Date:</label>
+        <input asp-for="CheckInDate" type="date" required />
+    </div>
+
+    <div>
+        <label>Check-Out Date:</label>
+        <input asp-for="CheckOutDate" type="date" required />
+    </div>
+
+    <button type="submit">Book Now</button>
+</form>
